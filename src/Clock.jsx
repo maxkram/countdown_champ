@@ -10,6 +10,7 @@ class Clock extends Component {
             minutes:0,
             seconds:0
         }
+
     }
     
     componentWillMount(){
@@ -21,15 +22,12 @@ class Clock extends Component {
     }
 
     leading0(num){
-        if(num<10){
-            return '0' + num;
-        }
-        return num;
+        return num < 10 ? '0' + num : num;
     }
 
     getTimeUntil(deadline){
         const time = Date.parse(deadline) - Date.parse(new Date());
-        console.log('time', time);
+        console.log(deadline);
         const seconds = Math.floor((time/1000)%60);
         const minutes = Math.floor((time/1000/60)%60);
         const hours = Math.floor(time/(1000*60*60)%24);
